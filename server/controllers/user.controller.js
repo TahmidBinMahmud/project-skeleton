@@ -7,6 +7,14 @@ const signup = (req, res) => {
   res.status(200).send(Signup())
 }
 
+const signin = (req, res) => {
+  res.status(200).sendFile(process.cwd() + '/client/signin.html')
+}
+
+const profile = (req, res) => {
+  res.status(200).sendFile(process.cwd() + '/client/profile.html')
+}
+
 const create = (req, res, next) => {
   const user = new User(req.body)
   user.save((err, result) => {
@@ -89,5 +97,7 @@ export default {
   list,
   remove,
   update,
-  signup
+  signup,
+  signin,
+  profile
 }
